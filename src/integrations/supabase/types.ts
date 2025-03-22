@@ -9,7 +9,150 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      forms: {
+        Row: {
+          address: string | null
+          bio: string | null
+          certifications: string | null
+          city: string | null
+          company: string | null
+          country: string | null
+          created_at: string
+          department: string | null
+          education: string | null
+          email: string | null
+          first_name: string | null
+          id: string
+          languages: string | null
+          last_name: string | null
+          linkedin: string | null
+          phone: string | null
+          position: string | null
+          salary: number | null
+          skills: string | null
+          start_date: string | null
+          state: string | null
+          twitter: string | null
+          updated_at: string
+          user_id: string
+          website: string | null
+          zip: string | null
+        }
+        Insert: {
+          address?: string | null
+          bio?: string | null
+          certifications?: string | null
+          city?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          department?: string | null
+          education?: string | null
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          languages?: string | null
+          last_name?: string | null
+          linkedin?: string | null
+          phone?: string | null
+          position?: string | null
+          salary?: number | null
+          skills?: string | null
+          start_date?: string | null
+          state?: string | null
+          twitter?: string | null
+          updated_at?: string
+          user_id: string
+          website?: string | null
+          zip?: string | null
+        }
+        Update: {
+          address?: string | null
+          bio?: string | null
+          certifications?: string | null
+          city?: string | null
+          company?: string | null
+          country?: string | null
+          created_at?: string
+          department?: string | null
+          education?: string | null
+          email?: string | null
+          first_name?: string | null
+          id?: string
+          languages?: string | null
+          last_name?: string | null
+          linkedin?: string | null
+          phone?: string | null
+          position?: string | null
+          salary?: number | null
+          skills?: string | null
+          start_date?: string | null
+          state?: string | null
+          twitter?: string | null
+          updated_at?: string
+          user_id?: string
+          website?: string | null
+          zip?: string | null
+        }
+        Relationships: []
+      }
+      login_logs: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          ip_address: string | null
+          user_agent: string | null
+          user_id: string
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          user_agent?: string | null
+          user_id: string
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          user_agent?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      users: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          last_sign_in: string | null
+          role: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id: string
+          last_sign_in?: string | null
+          role: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          last_sign_in?: string | null
+          role?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
