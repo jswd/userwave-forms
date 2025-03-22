@@ -11,8 +11,11 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.error('Missing Supabase credentials. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.');
 }
 
-// Create the Supabase client with the available credentials
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey);
+// Create a dummy client or real client based on available credentials
+export const supabase = createClient<Database>(
+  supabaseUrl || 'https://placeholder-url.supabase.co',
+  supabaseAnonKey || 'placeholder-key'
+);
 
 export type User = Database['public']['Tables']['users']['Row'];
 export type Form = Database['public']['Tables']['forms']['Row'];
