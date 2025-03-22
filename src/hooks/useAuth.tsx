@@ -125,6 +125,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(true);
       setError(null);
 
+      // 1. Sign up the user with Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
@@ -133,17 +134,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (error) throw error;
 
       if (data.user) {
-        // Create a user record in the users table
+        // 2. Create a user record in the users table
         const { error: profileError } = await supabase
           .from('users')
           .insert({
             id: data.user.id,
             email: email,
             role: role,
-            full_name: fullName || null
+            full_name: fullName || null,
+            created_at: new Date().toISOString(),
           });
 
-        if (profileError) throw profileError;
+        if (profileError) {
+          console.error('Error creating user profile:', profileError);
+          throw new Error('Failed to create user profile. Please try again.');
+        }
 
         toast({
           title: 'Account created',
